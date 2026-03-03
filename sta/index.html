@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking STA</title>
+    <!-- Busca o css e js na pasta raiz -->
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 class="glow-text">Ranking de Promoção</h1>
+            <h2 id="cidade-nome" class="subtitle">Carregando região...</h2>
+        </header>
+
+        <main>
+            <div class="glass-panel">
+                <div class="ranking-header">
+                    <div class="col-pos">Pos</div>
+                    <div class="col-nome">Entregador(a)</div>
+                    <div class="col-valor">Ganhos Consolidado</div>
+                </div>
+                <div id="ranking-list" class="ranking-list">
+                    <div class="loading">Buscando ranking no servidor...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts da raiz -->
+    <script src="../config.js"></script>
+    <script src="../app.js"></script>
+</body>
+
+</html>

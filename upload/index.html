@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importar Planilha</title>
+    <!-- Busca o css na pasta raiz -->
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 class="glow-text">Upload de Planilha</h1>
+            <h2 class="subtitle">Importe o arquivo Excel (.xlsx) com o ranking</h2>
+        </header>
+
+        <main>
+            <div class="glass-panel" style="text-align: center; padding: 3rem;">
+                <p style="margin-bottom: 2rem; color: #94a3b8; font-size: 1rem;">
+                    Certifique-se de que a planilha tem as colunas exatas:<br>
+                    <code
+                        style="color: #cbd5e1; background: rgba(0,0,0,0.3); padding: 5px; border-radius: 4px; display: inline-block; margin-top: 10px;">
+                    data_do_lancamento_financeiro | praca | id_da_pessoa_entregadora | recebedor | tipo | valor | descricao
+                    </code>
+                </p>
+
+                <input type="file" id="excel-file" accept=".xlsx, .xls, .csv"
+                    style="margin-bottom: 20px; color: #fff; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); width: 100%;">
+                <br>
+                <button id="upload-btn" class="upload-btn">Processar e Enviar</button>
+                <br>
+                <div id="status-msg" style="margin-top: 25px; font-weight: 600;"></div>
+                <a href="../sbc" class="upload-btn-return">Ver Ranking SBC</a> | <a href="../sta"
+                    class="upload-btn-return">Ver Ranking STA</a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts da raiz -->
+    <script src="../config.js"></script>
+    <script src="upload.js"></script>
+</body>
+
+</html>
