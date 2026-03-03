@@ -1,3 +1,5 @@
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
 document.getElementById('upload-btn').addEventListener('click', async () => {
     const fileInput = document.getElementById('excel-file');
     const statusMsg = document.getElementById('status-msg');
