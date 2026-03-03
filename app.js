@@ -56,6 +56,8 @@ async function fetchRanking() {
             return;
         }
 
+        // Guarda o ranking original em memória para não precisar ir no banco de novo ao pesquisar
+        globalRankingData = data;
         renderRanking(data);
 
     } catch (err) {
@@ -64,9 +66,16 @@ async function fetchRanking() {
     }
 }
 
+let globalRankingData = [];
+
 function renderRanking(data) {
     const listContainer = document.getElementById('ranking-list');
     listContainer.innerHTML = '';
+
+    if (!data || data.length === 0) {
+        listContainer.innerHTML = '<div class="empty-msg">Nenhum entregador encontrado.</div>';
+        return;
+    }
 
     // Formatar os valores como Moeda Brasileira
     const formatter = new Intl.NumberFormat('pt-BR', {
@@ -97,6 +106,21 @@ function renderRanking(data) {
         listContainer.appendChild(tr);
     });
 }
+
+// Configura o ouvinte de pesquisa
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredData = globalRankingData.filter(item => {
+                const nome = (item.recebedor || "").toLowerCase();
+                return nome.includes(searchTerm);
+            });
+            renderRanking(filteredData);
+        });
+    }
+});
 
 // Previne ataques basicos de XSS na hora de dar replace nos nomes
 function escapeHtml(unsafe) {
