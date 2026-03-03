@@ -1,4 +1,4 @@
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+window.supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 document.getElementById('upload-btn').addEventListener('click', async () => {
     const fileInput = document.getElementById('excel-file');
@@ -55,7 +55,7 @@ document.getElementById('upload-btn').addEventListener('click', async () => {
             // Envia para o Supabase
             // obs: Para que funcione via Javascript pelo Cliente, 
             // a tabela (ranking_promocao) precisa de política RLS com INSERT para a regra "anon"
-            const { error } = await supabase
+            const { error } = await window.supabaseClient
                 .from('ranking_promocao')
                 .insert(formattedData);
 
