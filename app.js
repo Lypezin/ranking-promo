@@ -1,6 +1,6 @@
 // Instanciar o cliente do Supabase
 // window.supabase já vem importado do CDN no HTML
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+window.supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // Detectar de qual cidade estamos vendo o ranking
 const path = window.location.pathname.toLowerCase();
@@ -43,7 +43,7 @@ async function fetchRanking() {
     try {
         // Busca na View que já consolida (SOMA) os valores por ID da pessoa e Praça,
         // garantindo que não mostremos o ID e que venha o maior recebedor (nome).
-        const { data, error } = await supabase
+        const { data, error } = await window.supabaseClient
             .from('vw_ranking_consolidado')
             .select('*')
             .ilike('praca', `%${currentPraca}%`) // Filtra pela cidade
