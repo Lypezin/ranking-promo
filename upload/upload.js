@@ -43,6 +43,15 @@ document.getElementById('upload-btn').addEventListener('click', async () => {
                     // Formatar texto de praca para uppercase para bater com os filtros na index
                     if (normalizedKey === 'praca' && row[key]) {
                         formattedRow[normalizedKey] = String(row[key]).trim().toUpperCase();
+                    } else if (normalizedKey === 'data_do_lancamento_financeiro' && row[key]) {
+                        // O Excel lê data como valor Serial Numeric (ex: 46076), vamos converter para ISO DATE YYYY-MM-DD
+                        if (!isNaN(row[key])) {
+                            const dateValue = new Date((row[key] - (25567 + 2)) * 86400 * 1000);
+                            formattedRow[normalizedKey] = dateValue.toISOString().split('T')[0];
+                        } else {
+                            // Tentar parse direto caso venha string exata (ex. "2025-01-01")
+                            formattedRow[normalizedKey] = new Date(row[key]).toISOString().split('T')[0];
+                        }
                     } else {
                         formattedRow[normalizedKey] = row[key];
                     }
