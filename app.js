@@ -14,6 +14,12 @@ if (path.includes('/sta')) {
 } else if (path.includes('/sbc')) {
     currentPraca = 'SÃO BERNARDO';
     displayCity = 'São Bernardo do Campo';
+} else if (path.includes('/sp')) {
+    currentPraca = 'SÃO PAULO';
+    displayCity = 'São Paulo';
+} else if (path.includes('/salvador')) {
+    currentPraca = 'SALVADOR';
+    displayCity = 'Salvador';
 } else {
     // Fallback pra caso abra a pasta raiz diretamente
     const urlParams = new URLSearchParams(window.location.search);
