@@ -8,7 +8,7 @@ let currentPraca = '';
 let displayCity = '';
 
 // Lógica de "separar por uma barra" e determinar a cidade correspondente
-if (path.includes('/sta')) {
+if (path.includes('/sta') || path.includes('/sa')) {
     currentPraca = 'STA';
     displayCity = 'Santo André';
 } else if (path.includes('/sbc')) {
