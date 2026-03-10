@@ -53,7 +53,8 @@ async function fetchRanking() {
             .from('vw_ranking_consolidado')
             .select('*')
             .ilike('praca', `%${currentPraca}%`) // Filtra pela cidade
-            .order('valor_total', { ascending: false }); // Ordena do maior pro menor
+            .order('valor_total', { ascending: false }) // Ordena do maior pro menor
+            .limit(15); // Mostra apenas os 15 primeiros
 
         if (error) throw error;
 
