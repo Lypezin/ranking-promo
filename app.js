@@ -9,13 +9,13 @@ let displayCity = '';
 
 // Lógica de "separar por uma barra" e determinar a cidade correspondente
 if (path.includes('/sta')) {
-    currentPraca = 'SANTO ANDRÉ';
+    currentPraca = 'STA';
     displayCity = 'Santo André';
 } else if (path.includes('/sbc')) {
-    currentPraca = 'SÃO BERNARDO';
+    currentPraca = 'SBC';
     displayCity = 'São Bernardo do Campo';
 } else if (path.includes('/sp')) {
-    currentPraca = 'SÃO PAULO';
+    currentPraca = 'SAO PAULO';
     displayCity = 'São Paulo';
 } else if (path.includes('/salvador')) {
     currentPraca = 'SALVADOR';
@@ -26,10 +26,10 @@ if (path.includes('/sta')) {
     const param = urlParams.get('cidade') || urlParams.get('c');
 
     if (param && param.toLowerCase() === 'sta') {
-        currentPraca = 'SANTO ANDRÉ';
+        currentPraca = 'STA';
         displayCity = 'Santo André';
     } else {
-        currentPraca = 'SÃO BERNARDO';
+        currentPraca = 'SBC';
         displayCity = 'São Bernardo do Campo';
     }
 }
