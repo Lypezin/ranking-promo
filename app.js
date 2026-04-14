@@ -8,7 +8,13 @@ let currentPraca = '';
 let displayCity = '';
 
 // Lógica de "separar por uma barra" e determinar a cidade correspondente
-if (path.includes('/sta') || path.includes('/sa')) {
+if (path.includes('/salvador')) {
+    currentPraca = 'SALVADOR';
+    displayCity = 'Salvador';
+} else if (path.includes('/guarulhos')) {
+    currentPraca = 'GUARULHOS';
+    displayCity = 'Guarulhos';
+} else if (path.includes('/sta') || path.includes('/sa')) {
     currentPraca = 'STA';
     displayCity = 'Santo André';
 } else if (path.includes('/sbc')) {
@@ -17,12 +23,6 @@ if (path.includes('/sta') || path.includes('/sa')) {
 } else if (path.includes('/sp')) {
     currentPraca = 'SAO PAULO';
     displayCity = 'São Paulo';
-    } else if (path.includes('/salvador')) {
-    currentPraca = 'SALVADOR';
-    displayCity = 'Salvador';
-} else if (path.includes('/guarulhos')) {
-    currentPraca = 'GUARULHOS';
-    displayCity = 'Guarulhos';
 } else {
     // Fallback pra caso abra a pasta raiz diretamente
     const urlParams = new URLSearchParams(window.location.search);
