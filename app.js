@@ -55,12 +55,14 @@ async function fetchRanking() {
     try {
         // Busca na View que já consolida (SOMA) os valores por ID da pessoa e Praça,
         // garantindo que não mostremos o ID e que venha o maior recebedor (nome).
+        const rankingLimit = (currentPraca === 'SAO PAULO') ? 25 : 15;
+
         const { data, error } = await window.supabaseClient
             .from('vw_ranking_consolidado')
             .select('*')
             .ilike('praca', `%${currentPraca}%`) // Filtra pela cidade
             .order('valor_total', { ascending: false }) // Ordena do maior pro menor
-            .limit(15); // Mostra apenas os 15 primeiros
+            .limit(rankingLimit); // Mostra os 25 primeiros para SP ou 15 para os demais
 
         if (error) throw error;
 
