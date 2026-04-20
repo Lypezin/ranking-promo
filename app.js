@@ -11,6 +11,9 @@ let displayCity = '';
 if (path.includes('/salvador')) {
     currentPraca = 'SALVADOR';
     displayCity = 'Salvador';
+} else if (path.includes('/sorocaba')) {
+    currentPraca = 'SOROCABA';
+    displayCity = 'Sorocaba';
 } else if (path.includes('/guarulhos')) {
     currentPraca = 'GUARULHOS';
     displayCity = 'Guarulhos';
