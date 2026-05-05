@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking SP - Semanal</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Favicon para evitar erro 404 no console -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style>
+        .badge-semanal {
+            display: inline-block;
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-top: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .premio-tag {
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 4px 12px;
+            border-radius: 8px;
+            white-space: nowrap;
+        }
+
+        .premio-dinheiro {
+            color: #10b981;
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+        }
+
+        .premio-celular {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(99, 102, 241, 0.2));
+            color: #c084fc;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+        }
+
+        .nav-links {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            padding: 6px 12px;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-links .active {
+            color: #a5b4fc;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 class="glow-text">Ranking de Promoção</h1>
+            <h2 class="subtitle">São Paulo</h2>
+            <div class="badge-semanal">📅 Semanal - Ganhadores</div>
+        </header>
+
+        <div class="nav-links">
+            <a href="/sp">📊 Mensal</a>
+            <span style="color: rgba(255,255,255,0.2);">|</span>
+            <a href="/sp2" class="active">📅 Semanal</a>
+        </div>
+
+        <main>
+            <div class="glass-panel">
+                <div class="ranking-header">
+                    <div class="col-pos">Pos</div>
+                    <div class="col-nome">Entregador(a)</div>
+                    <div class="col-valor">Prêmio</div>
+                </div>
+                <div id="ranking-list" class="ranking-list">
+                    <!-- 1º -->
+                    <div class="ranking-item top-1">
+                        <div class="col-pos">
+                            <div class="pos-badge">1</div>
+                        </div>
+                        <div class="col-nome item-nome">Francisco Reginaldo Fernandes Da Silva</div>
+                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 3.000,00</span></div>
+                    </div>
+                    <!-- 2º -->
+                    <div class="ranking-item top-2">
+                        <div class="col-pos">
+                            <div class="pos-badge">2</div>
+                        </div>
+                        <div class="col-nome item-nome">Luan Silva bezerra Alves</div>
+                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 2.000,00</span></div>
+                    </div>
+                    <!-- 3º -->
+                    <div class="ranking-item top-3">
+                        <div class="col-pos">
+                            <div class="pos-badge">3</div>
+                        </div>
+                        <div class="col-nome item-nome">Igor Rocha</div>
+                        <div class="col-valor"><span class="premio-tag premio-celular">📱 CELULAR</span></div>
+                    </div>
+                    <!-- 4º -->
+                    <div class="ranking-item">
+                        <div class="col-pos">
+                            <div class="pos-badge">4</div>
+                        </div>
+                        <div class="col-nome item-nome">Rafael Felix Oliveira</div>
+                        <div class="col-valor"><span class="premio-tag premio-celular">📱 CELULAR</span></div>
+                    </div>
+                    <!-- 5º -->
+                    <div class="ranking-item">
+                        <div class="col-pos">
+                            <div class="pos-badge">5</div>
+                        </div>
+                        <div class="col-nome item-nome">Adair Peres Braga</div>
+                        <div class="col-valor"><span class="premio-tag premio-celular">📱 CELULAR</span></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
