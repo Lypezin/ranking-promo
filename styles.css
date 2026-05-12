@@ -134,16 +134,26 @@ header {
 }
 
 .col-pos {
-    width: 10%;
+    width: 8%;
     text-align: center;
 }
 
 .col-nome {
-    width: 60%;
+    width: 35%;
+}
+
+.col-cnpj {
+    width: 22%;
+    text-align: center;
+}
+
+.col-extrato {
+    width: 18%;
+    text-align: right;
 }
 
 .col-valor {
-    width: 30%;
+    width: 17%;
     text-align: right;
 }
 
@@ -226,6 +236,18 @@ header {
     color: #f8fafc;
 }
 
+.item-cnpj {
+    font-family: monospace;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+}
+
+.item-extrato {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #fbbf24;
+}
+
 .item-valor {
     font-weight: 800;
     font-size: 1.25rem;
@@ -306,14 +328,18 @@ header {
         font-size: 0.95rem;
     }
 
+    .col-cnpj, .col-extrato, .item-cnpj, .item-extrato {
+        display: none; /* Oculta em telas pequenas para caber na tela */
+    }
+
     .item-valor {
         font-size: 1.05rem;
-        width: 40%;
+        width: 35%;
         text-align: right;
     }
 
     .col-nome {
-        width: 50%;
+        width: 55%;
     }
 }
 

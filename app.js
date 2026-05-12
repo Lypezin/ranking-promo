@@ -58,10 +58,10 @@ async function fetchRanking() {
         const rankingLimit = (currentPraca === 'SAO PAULO') ? 25 : 15;
 
         const { data, error } = await window.supabaseClient
-            .from('vw_ranking_consolidado')
+            .from('ranking_promocao')
             .select('*')
             .ilike('praca', `%${currentPraca}%`) // Filtra pela cidade
-            .order('valor_total', { ascending: false }) // Ordena do maior pro menor
+            .order('ranking', { ascending: true }) // Ordena pelo ranking vindo da planilha
             .limit(rankingLimit); // Mostra os 25 primeiros para SP ou 15 para os demais
 
         if (error) throw error;
@@ -102,13 +102,30 @@ function renderRanking(data) {
         const tr = document.createElement('div');
         tr.className = 'ranking-item';
 
-        const pos = index + 1;
+        const pos = item.ranking ? parseInt(item.ranking) : index + 1;
         // As 3 primeiras posições têm cores exclusivas
         if (pos <= 3) tr.classList.add(`top-${pos}`);
 
         // Evita undefined
-        const nomeEntregador = escapeHtml(item.recebedor) || "Não Identificado";
-        const valorFormatado = formatter.format(parseFloat(item.valor_total || 0));
+        const nomeEntregador = escapeHtml(item.entregador || item.recebedor) || "Não Identificado";
+        const cnpj = escapeHtml(item.cnpj) || "-";
+        
+        // Função auxiliar para parsear moeda que pode vir como string "R$ 1.500,00" ou numero
+        const parseCurrency = (val) => {
+            if (!val) return formatter.format(0);
+            if (typeof val === 'number') return formatter.format(val);
+            if (typeof val === 'string') {
+                // Se já veio formatado do excel como R$ 1.500,00
+                if (val.includes('R$')) return escapeHtml(val);
+                // Tenta converter string numerica
+                const parsed = parseFloat(val.replace(',', '.'));
+                if (!isNaN(parsed)) return formatter.format(parsed);
+            }
+            return escapeHtml(val);
+        };
+
+        const extratoFormatado = parseCurrency(item.extrato);
+        const valorFormatado = parseCurrency(item.valor || item.valor_total);
 
         // Estrutura HTML de cada linha usando CSS Grid Flex do styles.css
         tr.innerHTML = `
@@ -116,6 +133,8 @@ function renderRanking(data) {
                 <div class="pos-badge">${pos}</div>
             </div>
             <div class="col-nome item-nome">${nomeEntregador}</div>
+            <div class="col-cnpj item-cnpj">${cnpj}</div>
+            <div class="col-extrato item-extrato">${extratoFormatado}</div>
             <div class="col-valor item-valor">${valorFormatado}</div>
         `;
         listContainer.appendChild(tr);
@@ -129,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
             const filteredData = globalRankingData.filter(item => {
-                const nome = (item.recebedor || "").toLowerCase();
+                const nome = (item.entregador || item.recebedor || "").toLowerCase();
                 return nome.includes(searchTerm);
             });
             renderRanking(filteredData);
