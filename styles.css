@@ -140,6 +140,7 @@ header {
 
 .col-nome {
     width: 35%;
+    flex-grow: 1;
 }
 
 .col-cnpj {

@@ -58,10 +58,10 @@ async function fetchRanking() {
         const rankingLimit = (currentPraca === 'SAO PAULO') ? 25 : 15;
 
         const { data, error } = await window.supabaseClient
-            .from('ranking_promocao')
+            .from('vw_ranking_consolidado')
             .select('*')
             .ilike('praca', `%${currentPraca}%`) // Filtra pela cidade
-            .order('ranking', { ascending: true }) // Ordena pelo ranking vindo da planilha
+            .order('valor_total', { ascending: false }) // Ordena do maior pro menor
             .limit(rankingLimit); // Mostra os 25 primeiros para SP ou 15 para os demais
 
         if (error) throw error;
@@ -133,8 +133,6 @@ function renderRanking(data) {
                 <div class="pos-badge">${pos}</div>
             </div>
             <div class="col-nome item-nome">${nomeEntregador}</div>
-            <div class="col-cnpj item-cnpj">${cnpj}</div>
-            <div class="col-extrato item-extrato">${extratoFormatado}</div>
             <div class="col-valor item-valor">${valorFormatado}</div>
         `;
         listContainer.appendChild(tr);
