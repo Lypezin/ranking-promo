@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ranking SP - Semanal</title>
+    <title>Ranking SP - Mensal</title>
     <link rel="stylesheet" href="../styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <!-- Favicon para evitar erro 404 no console -->
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <style>
-        .badge-semanal {
+        .badge-mensal {
             display: inline-block;
-            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
             color: #fff;
             font-size: 0.85rem;
             font-weight: 600;
@@ -36,34 +36,11 @@
             text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
         }
 
-        .premio-kit {
-            background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.15));
-            color: #fbbf24;
-            border: 1px solid rgba(251, 191, 36, 0.3);
-            text-shadow: 0 0 8px rgba(251, 191, 36, 0.3);
-            font-size: 0.95rem;
-        }
-
-        .nav-links {
-            text-align: center;
-            margin-top: 1.5rem;
-        }
-
-        .nav-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-            padding: 6px 12px;
-        }
-
-        .nav-links a:hover {
-            color: #fff;
-        }
-
-        .nav-links .active {
-            color: #a5b4fc;
-            font-weight: 600;
+        .premio-celular {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(99, 102, 241, 0.2));
+            color: #c084fc;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
         }
     </style>
 </head>
@@ -79,14 +56,8 @@
         <header>
             <h1 class="glow-text">Ranking de Promoção</h1>
             <h2 class="subtitle">São Paulo</h2>
-            <div class="badge-semanal">📅 Semanal</div>
+            <div class="badge-mensal">📊 Mensal - Ganhadores</div>
         </header>
-
-        <div class="nav-links">
-            <a href="/sp2" class="active">📅 Semanal</a>
-            <span style="color: rgba(255,255,255,0.2);">|</span>
-            <a href="/sp">📊 Mensal</a>
-        </div>
 
         <main>
             <div class="glass-panel">
@@ -101,92 +72,32 @@
                     <!-- 1º -->
                     <div class="ranking-item top-1">
                         <div class="col-pos"><div class="pos-badge">1</div></div>
-                        <div class="col-nome item-nome">Igor Rocha</div>
-                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 1.500,00</span></div>
+                        <div class="col-nome item-nome">Francisco Reginaldo Fernandes Da Silva</div>
+                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 3.000,00</span></div>
                     </div>
                     <!-- 2º -->
                     <div class="ranking-item top-2">
                         <div class="col-pos"><div class="pos-badge">2</div></div>
-                        <div class="col-nome item-nome">Jeferson Oliveira Aprigio Da Silva.</div>
-                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 1.000,00</span></div>
+                        <div class="col-nome item-nome">Luan Silva bezerra Alves</div>
+                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 2.000,00</span></div>
                     </div>
                     <!-- 3º -->
                     <div class="ranking-item top-3">
                         <div class="col-pos"><div class="pos-badge">3</div></div>
-                        <div class="col-nome item-nome">Diego Rodrigues Silva</div>
-                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 500,00</span></div>
+                        <div class="col-nome item-nome">Igor Rocha</div>
+                        <div class="col-valor"><span class="premio-tag premio-celular">📱 CELULAR</span></div>
                     </div>
                     <!-- 4º -->
                     <div class="ranking-item">
                         <div class="col-pos"><div class="pos-badge">4</div></div>
-                        <div class="col-nome item-nome">Allef Sidney Dos Santos</div>
-                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 300,00</span></div>
+                        <div class="col-nome item-nome">Rafael Felix Oliveira</div>
+                        <div class="col-valor"><span class="premio-tag premio-celular">📱 CELULAR</span></div>
                     </div>
                     <!-- 5º -->
                     <div class="ranking-item">
                         <div class="col-pos"><div class="pos-badge">5</div></div>
-                        <div class="col-nome item-nome">Israel jose da silva</div>
-                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 300,00</span></div>
-                    </div>
-                    <!-- 6º -->
-                    <div class="ranking-item">
-                        <div class="col-pos"><div class="pos-badge">6</div></div>
-                        <div class="col-nome item-nome">Tarcisio Santos Soares</div>
-                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 300,00</span></div>
-                    </div>
-                    <!-- 7º -->
-                    <div class="ranking-item">
-                        <div class="col-pos"><div class="pos-badge">7</div></div>
-                        <div class="col-nome item-nome">Antônio Alves da Fonseca</div>
-                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 300,00</span></div>
-                    </div>
-                    <!-- 8º -->
-                    <div class="ranking-item">
-                        <div class="col-pos"><div class="pos-badge">8</div></div>
-                        <div class="col-nome item-nome">Erick Araujo Nilo</div>
-                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 300,00</span></div>
-                    </div>
-                    <!-- 9º -->
-                    <div class="ranking-item">
-                        <div class="col-pos"><div class="pos-badge">9</div></div>
-                        <div class="col-nome item-nome">DANIEL ALVES DOURADO</div>
-                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 300,00</span></div>
-                    </div>
-                    <!-- 10º -->
-                    <div class="ranking-item">
-                        <div class="col-pos"><div class="pos-badge">10</div></div>
-                        <div class="col-nome item-nome">Lucas Silva Bezerra Alves</div>
-                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 300,00</span></div>
-                    </div>
-                    <!-- 11º -->
-                    <div class="ranking-item">
-                        <div class="col-pos"><div class="pos-badge">11</div></div>
-                        <div class="col-nome item-nome">ILDOMAR CAVALCANTE DE MELO</div>
-                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 150,00</span></div>
-                    </div>
-                    <!-- 12º -->
-                    <div class="ranking-item">
-                        <div class="col-pos"><div class="pos-badge">12</div></div>
-                        <div class="col-nome item-nome">Francisco Reginaldo Fernandes Da Silva</div>
-                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 150,00</span></div>
-                    </div>
-                    <!-- 13º -->
-                    <div class="ranking-item">
-                        <div class="col-pos"><div class="pos-badge">13</div></div>
-                        <div class="col-nome item-nome">Emerson Paixão Santos</div>
-                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 150,00</span></div>
-                    </div>
-                    <!-- 14º -->
-                    <div class="ranking-item">
-                        <div class="col-pos"><div class="pos-badge">14</div></div>
-                        <div class="col-nome item-nome">Adenilton Pereira</div>
-                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 150,00</span></div>
-                    </div>
-                    <!-- 15º -->
-                    <div class="ranking-item">
-                        <div class="col-pos"><div class="pos-badge">15</div></div>
-                        <div class="col-nome item-nome">Marcelo Bezerra De Souza</div>
-                        <div class="col-valor"><span class="premio-tag premio-dinheiro">R$ 150,00</span></div>
+                        <div class="col-nome item-nome">Adair Peres Braga</div>
+                        <div class="col-valor"><span class="premio-tag premio-celular">📱 CELULAR</span></div>
                     </div>
                 </div>
             </div>
